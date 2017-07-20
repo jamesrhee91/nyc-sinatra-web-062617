@@ -76,7 +76,7 @@ describe FiguresController do
 
   it "allows you to list all figures" do
     visit '/figures'
-    
+
     expect(page.status_code).to eq(200)
 
     expect(page.body).to include("Beyonce")
@@ -98,7 +98,7 @@ describe FiguresController do
     expect(last_response.body).to include('<form')
     expect(last_response.body).to include('figure[name]')
     expect(last_response.body).to include('figure[title_ids]')
-    expect(last_response.body).to include(@figure.name)    
+    expect(last_response.body).to include(@figure.name)
   end
 
 
@@ -110,7 +110,7 @@ describe FiguresController do
     click_button "Edit Figure"
     @figure = Figure.first
     expect(page.current_path).to eq("/figures/#{@figure.id}")
-    expect(page.body).to include(@figure.name)    
+    expect(page.body).to include(@figure.name)
 
     expect(page.body).to include("Big Tower")
     expect(@figure.name).to eq("Missy")
